@@ -3,11 +3,11 @@ interface ContentProps {
     text2?: string
 }
 
-const Content = (props: ContentProps) => {
+const Content = ({ text1, text2 }: ContentProps) => {
     return (
         <>
-            <p>{props.text1}</p>
-            <p>{props.text2}</p>
+            <p>{text1}</p>
+            <p>{text2}</p>
         </>
     )
 }
