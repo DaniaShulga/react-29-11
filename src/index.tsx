@@ -1,9 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
-const Title = () => {
-    return <h1>Hello App component</h1>
-}
+import Title from './Title'
 
 const Content = () => {
     return (
