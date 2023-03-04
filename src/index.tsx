@@ -24,8 +24,8 @@ const Content = () => {
 const App = () => {
     return (
         <>
-            <Title title="React" />
-            <Title title="App" />
+            <Title title="React" year={2023} />
+            <Title title="App" year={2022} />
             <Content />
         </>
     )
