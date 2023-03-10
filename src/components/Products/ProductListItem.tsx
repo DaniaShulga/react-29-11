@@ -59,7 +59,10 @@ class ProductListItem extends Component<Props, State> {
                     <div className="product-quantity">
                         <Button
                             variant="outlined"
-                            onClick={this.onDecrementClick}
+                            onClick={() => {
+                                this.onDecrementClick()
+                            }}
+                            disabled={this.state.count <= 1}
                         >
                             -
                         </Button>
