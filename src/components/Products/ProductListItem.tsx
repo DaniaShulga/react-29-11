@@ -17,7 +17,33 @@ interface Props {
     image: string
 }
 
-class ProductListItem extends Component<Props> {
+interface State {
+    count: number
+}
+
+class ProductListItem extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+        this.state = {
+            count: 1,
+        }
+
+        this.onIncrementClick = this.onIncrementClick.bind(this)
+        this.onDecrementClick = this.onDecrementClick.bind(this)
+    }
+
+    onIncrementClick() {
+        this.setState((prevState) => ({
+            count: prevState.count + 1,
+        }))
+    }
+
+    onDecrementClick() {
+        this.setState((prevState) => ({
+            count: prevState.count - 1,
+        }))
+    }
+
     render() {
         const { title, description, type, capacity, price, image } = this.props
         return (
@@ -37,9 +63,19 @@ class ProductListItem extends Component<Props> {
                     </div>
 
                     <div className="product-quantity">
-                        <Button variant="outlined">-</Button>
-                        <TextField size="small" value="1" />
-                        <Button variant="outlined">+</Button>
+                        <Button
+                            variant="outlined"
+                            onClick={this.onDecrementClick}
+                        >
+                            -
+                        </Button>
+                        <TextField size="small" value={this.state.count} />
+                        <Button
+                            variant="outlined"
+                            onClick={this.onIncrementClick}
+                        >
+                            +
+                        </Button>
                     </div>
 
                     <CardActions className="btns-wrap">
@@ -51,12 +87,4 @@ class ProductListItem extends Component<Props> {
     }
 }
 
-// const ProductListItem = ({
-//     title,
-//     description,
-//     type,
-//     capacity,
-//     price,
-//     image,
-// }: Props) => {}
 export default ProductListItem
