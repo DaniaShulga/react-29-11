@@ -26,13 +26,13 @@ class ProductListItem extends Component<Props, State> {
         count: 1,
     }
 
-    onIncrementClick() {
+    onIncrementClick = () => {
         this.setState((prevState) => ({
             count: prevState.count + 1,
         }))
     }
 
-    onDecrementClick() {
+    onDecrementClick = () => {
         this.setState((prevState) => ({
             count: prevState.count - 1,
         }))
@@ -59,7 +59,7 @@ class ProductListItem extends Component<Props, State> {
                     <div className="product-quantity">
                         <Button
                             variant="outlined"
-                            onClick={() => this.onDecrementClick()}
+                            onClick={this.onDecrementClick}
                         >
                             -
                         </Button>
