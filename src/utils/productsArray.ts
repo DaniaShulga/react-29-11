@@ -8,6 +8,7 @@ type Products = {
     price: number
 }
 
+
 const productsArray: Products[] = [
     {
         title:"iPhone 14 Pro",
