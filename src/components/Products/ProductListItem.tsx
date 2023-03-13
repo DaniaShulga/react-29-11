@@ -20,7 +20,7 @@ interface Props {
 interface State {
     count: number
     color: string
-    text: string
+    show: boolean
 }
 
 class ProductListItem extends Component<Props, State> {
@@ -28,6 +28,7 @@ class ProductListItem extends Component<Props, State> {
         count: 1,
         color: 'green',
         text: 'hide',
+        show: false,
     }
 
     onIncrementClick = () => {
@@ -48,9 +49,9 @@ class ProductListItem extends Component<Props, State> {
         }))
     }
 
-    showDescription = () => {
+    toggleDesc = () => {
         this.setState((prevState) => ({
-            text: prevState.text === 'show' ? 'hide' : 'show',
+            show: !prevState.show,
         }))
     }
 
@@ -80,18 +81,16 @@ class ProductListItem extends Component<Props, State> {
                     </p>
                     <button onClick={this.changeColor}>Change color</button> */}
 
-                    <p>
-                        <span className={this.state.text}>
+                    {this.state.show ? (
+                        <p>
                             Lorem ipsum, dolor sit amet consectetur adipisicing
                             elit. Veritatis corporis eaque magnam similique
                             facilis blanditiis magni ab, architecto quasi amet
                             esse? Totam modi magnam aspernatur, reiciendis ad
                             impedit placeat deleniti!
-                        </span>
-                    </p>
-                    <button onClick={this.showDescription}>
-                        Show description
-                    </button>
+                        </p>
+                    ) : null}
+                    <button onClick={this.toggleDesc}>Show description</button>
 
                     <div className="product-quantity">
                         <Button
