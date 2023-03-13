@@ -19,11 +19,13 @@ interface Props {
 
 interface State {
     count: number
+    color: string
 }
 
 class ProductListItem extends Component<Props, State> {
     state = {
         count: 1,
+        color: 'green',
     }
 
     onIncrementClick = () => {
@@ -36,6 +38,12 @@ class ProductListItem extends Component<Props, State> {
         this.setState((prevState) => ({
             count: prevState.count - 1,
         }))
+    }
+
+    changeColor = () => {
+        this.setState({
+            color: 'red',
+        })
     }
 
     render() {
@@ -55,6 +63,9 @@ class ProductListItem extends Component<Props, State> {
                     <div className="product-price">
                         Price: <strong>${price}</strong>
                     </div>
+
+                    <p>Color:{this.state.color}</p>
+                    <button onClick={this.changeColor}>Change color</button>
 
                     <div className="product-quantity">
                         <Button
