@@ -20,12 +20,14 @@ interface Props {
 interface State {
     count: number
     color: string
+    text: string
 }
 
 class ProductListItem extends Component<Props, State> {
     state = {
         count: 1,
         color: 'green',
+        text: 'hide',
     }
 
     onIncrementClick = () => {
@@ -43,6 +45,12 @@ class ProductListItem extends Component<Props, State> {
     changeColor = () => {
         this.setState((prevState) => ({
             color: prevState.color === 'green' ? 'red' : 'green',
+        }))
+    }
+
+    showDescription = () => {
+        this.setState((prevState) => ({
+            text: prevState.text === 'show' ? 'hide' : 'show',
         }))
     }
 
@@ -64,13 +72,26 @@ class ProductListItem extends Component<Props, State> {
                         Price: <strong>${price}</strong>
                     </div>
 
-                    <p>
+                    {/* <p>
                         Color:{' '}
                         <span className={this.state.color}>
                             {this.state.color}
                         </span>{' '}
                     </p>
-                    <button onClick={this.changeColor}>Change color</button>
+                    <button onClick={this.changeColor}>Change color</button> */}
+
+                    <p>
+                        <span className={this.state.text}>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Veritatis corporis eaque magnam similique
+                            facilis blanditiis magni ab, architecto quasi amet
+                            esse? Totam modi magnam aspernatur, reiciendis ad
+                            impedit placeat deleniti!
+                        </span>
+                    </p>
+                    <button onClick={this.showDescription}>
+                        Show description
+                    </button>
 
                     <div className="product-quantity">
                         <Button
