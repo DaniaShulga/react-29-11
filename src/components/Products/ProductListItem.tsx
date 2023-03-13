@@ -41,8 +41,16 @@ class ProductListItem extends Component<Props, State> {
     }
 
     changeColor = () => {
-        this.setState({
-            color: 'red',
+        this.setState((prevState) => {
+            if (prevState.color === 'green') {
+                return {
+                    color: 'red',
+                }
+            } else {
+                return {
+                    color: 'green',
+                }
+            }
         })
     }
 
@@ -64,7 +72,12 @@ class ProductListItem extends Component<Props, State> {
                         Price: <strong>${price}</strong>
                     </div>
 
-                    <p>Color:{this.state.color}</p>
+                    <p>
+                        Color:{' '}
+                        <span className={this.state.color}>
+                            {this.state.color}
+                        </span>{' '}
+                    </p>
                     <button onClick={this.changeColor}>Change color</button>
 
                     <div className="product-quantity">
