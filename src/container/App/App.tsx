@@ -13,7 +13,7 @@ type CartData = {
 }
 
 const App = (props: Props) => {
-    const [cartData, setCartData] = useState<CartData>({
+    const [cartData] = useState<CartData>({
         totalCount: 10,
         totalPrice: 100,
     })
@@ -21,7 +21,7 @@ const App = (props: Props) => {
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
-            <Header />
+            <Header {...cartData} />
             <Main />
             <Footer />
         </StyledEngineProvider>
