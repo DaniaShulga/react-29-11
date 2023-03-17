@@ -21,7 +21,8 @@ const App = (props: Props) => {
     return (
         <StyledEngineProvider injectFirst>
             <CssBaseline />
-            <Header />
+            <Header cartData={cartData} />
+            <button>Add to cart (5,500)</button>
             <Main />
             <Footer />
         </StyledEngineProvider>
