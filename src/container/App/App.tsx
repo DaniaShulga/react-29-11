@@ -1,9 +1,12 @@
 import Footer from 'container/Footer/Footer'
 import Header from 'container/Header/Header'
-import Main from 'container/Main/Main'
 import CssBaseline from '@mui/material/CssBaseline'
 import { StyledEngineProvider } from '@mui/material/styles'
 import { useState } from 'react'
+import { Container } from '@mui/material'
+import Home from 'pages/Home/Home'
+import { Route, Routes } from 'react-router-dom'
+import CartPage from 'pages/Cart/CartPage'
 
 type Props = {}
 
@@ -28,7 +31,18 @@ const App = (props: Props) => {
         <StyledEngineProvider injectFirst>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <Main addProductToCart={addProductToCart} />
+            <Container sx={{ padding: '40px 0' }}>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={<Home addProductToCart={addProductToCart} />}
+                    />
+                    <Route
+                        path="/cart"
+                        element={<CartPage productsInCart={productsInCart} />}
+                    />
+                </Routes>
+            </Container>
             <Footer />
         </StyledEngineProvider>
     )
