@@ -1,6 +1,7 @@
 import { Button, Card, CardContent, Grid } from '@mui/material'
 import { Products } from 'utils/productsArray'
 import DeleteIcon from '@mui/icons-material/Delete'
+import Quantity from 'components/Quantity/Quantity'
 
 type Props = {
     product: Products
@@ -23,6 +24,11 @@ const CartProductListItemExtended = ({
                     <h4>{product.title}</h4>
                     <p>Price for one item: ${product.price}</p>
                     <p>Count: {productCount}</p>
+                    <Quantity
+                        count={productCount}
+                        onDecrement={() => console.log('test')}
+                        onIncrement={() => console.log('test')}
+                    />
                     <Button
                         variant="outlined"
                         onClick={() => removeProductFromCart(product.id)}
