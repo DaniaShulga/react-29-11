@@ -1,9 +1,18 @@
-type Props = {}
-const CartHeader = (props: Props) => {
+import CartProductList from 'components/CartProductList/CartProductList'
+import CartTotal from 'components/CartTotal/CartTotal'
+
+type Props = {
+    productsInCart: {
+        [id: number]: number
+    }
+}
+const CartHeader = ({ productsInCart }: Props) => {
     return (
         <div>
-            <div>0</div>
-            <div>$0</div>
+            <CartProductList productsInCart={productsInCart} />
+            <div>
+                <CartTotal productsInCart={productsInCart} />
+            </div>
         </div>
     )
 }
