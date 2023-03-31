@@ -38,6 +38,7 @@ const ProductListItem = ({
         setCount((prevState) => prevState - 1)
     }
     const isLiked = useAppSelector((state) => state.productsLike[id])
+    const inCart = useAppSelector((state) => state.productsInCart[id])
     const dispatch = useAppDispatch()
 
     return (

@@ -10,11 +10,14 @@ const initialState:ProductsInCartType = {
 }
 
 export const cartSlice = createSlice({
-    name:'like',
+    name:'productsInCart',
     initialState,
     reducers:{
         
+        
     },
 })
+
+
 
 export default cartSlice.reducer
