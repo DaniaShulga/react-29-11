@@ -8,6 +8,7 @@ import Home from 'pages/Home/Home'
 import { Route, Routes } from 'react-router-dom'
 import CartPage from 'pages/Cart/CartPage'
 import { omit } from 'lodash'
+import CheckoutPage from 'pages/Checkout/CheckoutPage'
 
 type Props = {}
 
@@ -53,12 +54,12 @@ const App = (props: Props) => {
                         path="/cart"
                         element={
                             <CartPage
-                                productsInCart={productsInCart}
                                 removeProductFromCart={removeProductFromCart}
                                 changeProductQuantity={changeProductQuantity}
                             />
                         }
                     />
+                    <Route path="/checkout" element={<CheckoutPage />} />
                 </Routes>
             </Container>
             <Footer />
